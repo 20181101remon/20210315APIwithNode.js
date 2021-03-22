@@ -1,3 +1,8 @@
+// 從index導入再解構
+import models from "../models/index";
+
+const { users } = models;
+
 class UserController {
 
     getUser = (req, res) => {
@@ -6,19 +11,30 @@ class UserController {
         res.status(200).json({ message: 'user' })
     }
 
-    postUser = (req, res) => {
+    postUser = async (req, res) => {
         const { body } = req;
-        const { name, phone } = body;
-        const profile = {
-            name,
-            phone
-        }
-        res.status(200).json({ profile });
+        const { email, password } = body;
+        const user = await users.create({
+            email,
+            password
+        })
+
+        res.status(200).json({ user });
     }
 
     putUser = (req, res) => {
 
+        // const { body } = req;
+        // const { id, score } = body;
+        // const obj = Array.push({
+        //     id,
+        //     score
+        // })
+
         res.status(200).json({ message: '更改' })
+
+
+
     }
 
     delectUser = (req, res) => {

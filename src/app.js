@@ -1,5 +1,6 @@
 //將所有要安裝的套件引入
 import express from 'express';
+// 導入Node.js自帶的http module
 import http from 'http';
 import cookieParse from 'cookie-parser';
 import path from 'path';
@@ -49,7 +50,10 @@ app.use(passport.session())
 
 app.use('/api', index)
 // 建立伺服器,將套件放入server上
+// http object裡面的創建伺服器
 const server = http.createServer(app);
+// 伺服器在收到請求的時候該怎麼回應,把請求監聽器放入伺服器中
+// 監聽器=函數
 // 設定啟用的PORT號
 server.listen(3001);
 // 將SERVER開啟
