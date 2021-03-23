@@ -1,4 +1,5 @@
 export default (sequelize, DataTypes) => {
+    // sequelize資料表預會加s
     const users = sequelize.define('users', {
         id: {
             type: DataTypes.UUID,
@@ -19,9 +20,11 @@ export default (sequelize, DataTypes) => {
         sequelize,
         modelName: 'users',
         freezeTableName: true,
+        // 藥用自己取的資料表名稱
     });
     users.associat = (module) => {
 
     }
     return users;
 }
+// ORM會幫你組回去語法

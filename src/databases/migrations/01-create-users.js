@@ -1,5 +1,5 @@
 // 類似co api 會有hoisting問題
-//異布 
+// 異布
 export async function up(queryInterface, Sequelize) {
     await queryInterface.createTable('users', {
         id: {
@@ -9,7 +9,8 @@ export async function up(queryInterface, Sequelize) {
         email: {
             type: Sequelize.STRING(40),
 
-        }, password: {
+        },
+        password: {
             type: Sequelize.STRING(60),
         },
         email_verified: {
@@ -23,10 +24,9 @@ export async function up(queryInterface, Sequelize) {
             type: Sequelize.DATE,
             allowNull: false,
         },
-    })
+    });
 }
-
+// 給SQL看的東西
 export async function down(queryInterface, sequelize) {
 
 }
-
