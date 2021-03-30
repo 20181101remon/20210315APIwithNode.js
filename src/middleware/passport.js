@@ -28,7 +28,7 @@ passport.use(new LocalStrategy({
     return done({ status: 400, message: '沒有該用戶' }, false);
   }
   // 這邊和資料庫連建,密碼要解密後比對
-  if (!password) {
+  if (password !== user.password) {
     return done({ status: 400, message: '密碼錯誤' }, false);
   }
   return done(null, user);

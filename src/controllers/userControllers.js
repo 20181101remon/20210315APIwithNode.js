@@ -9,6 +9,12 @@ const { users } = models;
 class UserController {
   // get拿不道body的東西
   getUser = async (req, res) => {
+    const { email } = req.body;
+    const user = await users.findOne({
+      where: {
+        email,
+      },
+    });
 
     // const {email}=req.params;
     // const user =await UserService.getUser(email);
@@ -31,7 +37,7 @@ class UserController {
     //   vip: true,
     // }));
 
-    // res.status(200).json({ reponse });
+    res.status(200).json({ user });
 
     // 可使用req.method查看前端請求的http動作
     // 可適用req.url查看新增的url

@@ -31,11 +31,11 @@ class UserMiddleware {
       // const { email, password } = ;
       const data = {
 
-        email: 'aa@aaa',
+        email: user.email,
         expireTime: new Date().getTime + 10 * 60 * 1000,
       };
       const token = jwt.sign(data, process.env.APP_KEY);
-      res.status(200).json({ message: '登入成功' });
+      res.status(200).json({ message: '登入成功', token: token });
     })(req, res, next);
     // 代表是中間的middleware
   }
